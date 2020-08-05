@@ -1,26 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react' 
+import { AuthContext } from './contexts/AuthContext'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+	const { authenticated, toggleAuth } = useContext(AuthContext)
+	return (
+		<div className='App'>	
+			<div onClick={ toggleAuth }>{ authenticated ? 'Logged In' : 'Logged Out' }	</div>	
+		</div>	
+	)	
 }
 
-export default App;
+export default App
